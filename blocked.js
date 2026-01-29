@@ -23,13 +23,60 @@ const DEFAULT_SOURCES = [
     rss: "https://www.pbs.org/newshour/feeds/rss/headlines",
     sortOrder: 20
   },
-  // {
-  //   name: "Associated Press",
-  //   url: "https://apnews.com/",
-  //   category: "World",
-  //   rss: "",
-  //   sortOrder: 10
-  // },
+
+  // ✅ AP RSS filled in
+  {
+    name: "Associated Press",
+    url: "https://apnews.com/",
+    category: "World",
+    rss: "https://www.apnews.com/index.rss",
+    sortOrder: 10
+  },
+
+  // ✅ Added free/no-login US news sites
+  {
+    name: "UPI",
+    url: "https://www.upi.com/",
+    category: "News",
+    rss: "https://rss.upi.com/news/top_news.rss",
+    sortOrder: 15
+  },
+  {
+    name: "The Marshall Project",
+    url: "https://www.themarshallproject.org/",
+    category: "Investigative",
+    rss: "https://www.themarshallproject.org/rss/recent",
+    sortOrder: 15
+  },
+  {
+    name: "The Texas Tribune",
+    url: "https://www.texastribune.org/",
+    category: "News",
+    rss: "https://feeds.texastribune.org/feeds/main/",
+    sortOrder: 15
+  },
+  {
+    name: "CalMatters",
+    url: "https://calmatters.org/",
+    category: "News",
+    rss: "https://calmatters.org/feed/",
+    sortOrder: 15
+  },
+  {
+    name: "Vox",
+    url: "https://www.vox.com/",
+    category: "News",
+    rss: "https://www.vox.com/rss/index.xml",
+    sortOrder: 15
+  },
+  {
+    name: "Reason",
+    url: "https://reason.com/",
+    category: "News",
+    rss: "https://reason.com/rss/",
+    sortOrder: 15
+  },
+
   {
     name: "The Guardian",
     url: "https://www.theguardian.com/",
@@ -136,6 +183,7 @@ const DEFAULT_SOURCES = [
     sortOrder: 10
   }
 ];
+
 
 const listEl = document.getElementById("source-list");
 const headlinesList = document.getElementById("headlines-list");
