@@ -311,8 +311,20 @@ h1 {
 
 .footer {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 16px;
+}
+
+.github {
+  font-size: 0.78rem;
+  color: #0b63ce;
+  text-decoration: none;
+  font-family: "Optima", "Candara", "Lucida Sans Unicode", sans-serif;
+}
+
+.github:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
