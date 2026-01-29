@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>No More Google News</title>
+    <link rel="stylesheet" href="blocked.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <div class="title-row">
+          <img src="icon.svg" alt="No More Google News" class="title-icon" />
+          <div>
+            <p class="kicker">No More Google News</p>
+            <h1>Are you sure you want to go to Google News?</h1>
+          </div>
+        </div>
+        <div class="rules">
+          <p class="rules-title">These sources should avoid:</p>
+          <ul>
+            <li>Paywalls</li>
+            <li>Registration required</li>
+            <li>Limited number of articles per month</li>
+          </ul>
+        </div>
+        <div class="editor">
+          <div class="editor-head">
+            <span class="eyebrow sm">Alternate sources</span>
+            <span id="status" class="status"></span>
+          </div>
+
+          <div id="add-form" class="add-form hidden">
+            <input id="add-name" type="text" placeholder="Name" aria-label="Name" />
+            <input id="add-url" type="text" placeholder="https://example.com" aria-label="URL" />
+            <button id="add-submit" class="btn primary slim" type="button">Add</button>
+            <button id="add-cancel" class="btn ghost slim" type="button">Cancel</button>
+          </div>
+
+          <div class="list" id="source-list"></div>
+        </div>
+        <div class="footer">
+          <a class="btn tiny" id="continue-link" href="#">Continue to Google News</a>
+        </div>
+      </section>
+    </main>
+    <script src="blocked.js"></script>
+  </body>
+</html>

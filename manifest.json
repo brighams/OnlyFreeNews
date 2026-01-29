@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "No More Google News",
+  "version": "1.0.0",
+  "description": "Kindly reminds you to skip Google News and offers alternative sources.",
+  "icons": {
+    "32": "icon-32.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "permissions": ["storage", "declarativeNetRequest"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "No More Google News",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "32": "icon-32.png",
+      "48": "icon-48.png",
+      "128": "icon-128.png"
+    }
+  }
+}

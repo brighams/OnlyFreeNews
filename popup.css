@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 260px;
+  font-family: "Optima", "Candara", "Lucida Sans Unicode", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #f7f3ec, #e9f2f0 55%, #f1edf9 90%);
+  color: #1c1c1c;
+}
+
+.popup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(28, 28, 28, 0.12);
+  background: #fff;
+}
+
+.brand-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #1c1c1c;
+  background: #1c1c1c;
+  color: #fffdf7;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: #1c1c1c;
+}
