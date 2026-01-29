@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "No More Google News",
+  "name": "Only Free News",
   "version": "1.0.0",
-  "description": "Kindly reminds you to skip Google News and offers alternative sources.",
+  "description": "Kindly suggests alternate sources before Google News.",
   "icons": {
     "32": "icon-32.png",
     "48": "icon-48.png",
@@ -14,7 +14,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "No More Google News",
+    "default_title": "Only Free News",
     "default_popup": "popup.html",
     "default_icon": {
       "32": "icon-32.png",

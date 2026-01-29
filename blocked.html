@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>No More Google News</title>
+    <title>Only Free News!</title>
     <link rel="stylesheet" href="blocked.css" />
   </head>
   <body>
     <main class="page">
       <section class="card">
         <div class="title-row">
-          <img src="icon.svg" alt="No More Google News" class="title-icon" />
+          <img src="icon.svg" alt="Only Free News" class="title-icon" />
           <div>
-            <p class="kicker">No More Google News</p>
-            <h1>Are you sure you want to go to Google News?</h1>
+            <p class="kicker">Only Free News</p>
+<!--            <h1>Only Free News</h1>-->
           </div>
         </div>
         <div class="rules">
@@ -22,10 +22,23 @@
             <li>PAYWALLS</li>
             <li>REGISTRATION REQUIRED</li>
             <li>LIMITED NUMBER OF ARTICLES PER MONTH</li>
-            <li><a href="https://github.com/brighams/NoMoreGoogleNews/issues">REPORT SITE</a></li>
+            <li><a href="https://github.com/brighams/NoMoreGoogleNews/issues" style="font-weight: bold; color: rgb(198, 84, 0)">REPORT SITE</a></li>
           </ul>
         </div>
-        <div class="editor">
+        <div class="tabs">
+          <button class="tab active" type="button" data-tab="headlines">Headlines</button>
+          <button class="tab" type="button" data-tab="sources">Sources</button>
+          <span class="tab-spacer"></span>
+          <button class="tab-link" type="button" id="refresh-headlines">Refresh</button>
+        </div>
+        <div class="tab-panel" id="tab-headlines">
+          <div class="editor-head">
+<!--            <span class="eyebrow sm">Headlines</span>-->
+            <span id="headlines-status" class="status"></span>
+          </div>
+          <div class="headlines-list" id="headlines-list"></div>
+        </div>
+        <div class="editor tab-panel hidden" id="tab-sources">
           <div class="editor-head">
             <span class="eyebrow sm">Alternate sources</span>
             <span id="status" class="status"></span>
@@ -34,6 +47,8 @@
           <div id="add-form" class="add-form hidden">
             <input id="add-name" type="text" placeholder="Name" aria-label="Name" />
             <input id="add-url" type="text" placeholder="https://example.com" aria-label="URL" />
+            <input id="add-category" type="text" placeholder="Category (e.g. World, Tech)" aria-label="Category" />
+            <input id="add-rss" type="text" placeholder="RSS or Atom feed URL (optional)" aria-label="RSS URL" />
             <button id="add-submit" class="btn primary slim" type="button">Add</button>
             <button id="add-cancel" class="btn ghost slim" type="button">Cancel</button>
           </div>

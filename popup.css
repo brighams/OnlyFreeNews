@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  min-width: 260px;
+  min-width: 300px;
   font-family: "Optima", "Candara", "Lucida Sans Unicode", sans-serif;
   background: radial-gradient(circle at 20% 20%, #f7f3ec, #e9f2f0 55%, #f1edf9 90%);
   color: #1c1c1c;
@@ -12,9 +12,10 @@ body {
 
 .popup {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 18px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  padding: 12px 14px 14px;
 }
 
 .brand {
@@ -25,8 +26,8 @@ body {
 }
 
 .brand-icon {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(28, 28, 28, 0.12);
   background: #fff;
@@ -34,23 +35,101 @@ body {
 
 .brand-name {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 .btn {
-  padding: 8px 14px;
+  padding: 6px 10px;
   border-radius: 999px;
   border: 1px solid #1c1c1c;
   background: #1c1c1c;
   color: #fffdf7;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   white-space: nowrap;
 }
 
 .btn.secondary {
   background: transparent;
   color: #1c1c1c;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.blocked-list {
+  display: grid;
+  gap: 6px;
+  max-height: 140px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.blocked-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(28, 28, 28, 0.12);
+  background: #ffffffcc;
+  font-size: 0.75rem;
+}
+
+.blocked-row span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blocked-remove {
+  border: none;
+  background: transparent;
+  color: #7a1f1f;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.adder {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(28, 28, 28, 0.12);
+}
+
+.adder-title {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.adder-fields {
+  display: grid;
+  gap: 6px;
+}
+
+.adder input {
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(28, 28, 28, 0.2);
+}
+
+.adder-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status {
+  font-size: 0.75rem;
+  color: #3d3d3d;
 }

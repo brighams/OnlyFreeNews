@@ -1,4 +1,4 @@
-# NoMoreGoogleNews
+# Only Free News
 
 ![No More Google News preview](README.png)
 
