@@ -62,27 +62,38 @@ h1 {
 }
 
 .rules {
-  margin: 10px 0 18px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: #ffffffc4;
-  border: 1px solid rgba(28, 28, 28, 0.12);
+  margin: 6px 0 18px;
   font-family: "Optima", "Candara", "Lucida Sans Unicode", sans-serif;
+  font-size: 0.75rem;
+  color: #333;
 }
 
 .rules-title {
-  margin: 0 0 8px;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  margin: 0 6px 0 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #c65400;
+  display: inline;
+  font-synthesis-small-caps: auto;
 }
 
 .rules ul {
   margin: 0;
-  padding-left: 18px;
-  display: grid;
-  gap: 4px;
-  font-size: 0.92rem;
-  color: #333;
+  padding: 0;
+  display: inline-flex;
+  gap: 6px;
+  list-style: none;
+}
+
+.rules li::after {
+  content: "•";
+  margin-left: 6px;
+  color: #c65400;
+}
+
+.rules li:last-child::after {
+  content: "";
+  margin: 0;
 }
 
 .actions {
