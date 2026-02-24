@@ -423,123 +423,56 @@ async function renderHeadlines(sources) {
   headlinesStatus.textContent = "Loading headlines...";
   updateRefreshMeta();
 
-  const grouped = groupSourcesByCategory(sources);
+  const allSources = sortSources(sources.filter(hasFeed));
   const tasks = [];
-  const cards = [];
 
-  grouped.forEach(({ category, items }) => {
-    const section = document.createElement("div");
-    section.className = "headlines-category";
+  allSources.forEach((source) => {
+    const card = document.createElement("div");
+    card.className = "headline-card";
 
-    const title = document.createElement("div");
-    title.className = "category-title";
-    title.textContent = category;
+    const header = document.createElement("div");
+    header.className = "headline-header";
+    appendSourceIcon(header, source);
 
-    const grid = document.createElement("div");
-    grid.className = "headlines-grid";
+    const name = document.createElement("a");
+    name.className = "headline-title";
+    name.textContent = source.name || "Untitled source";
+    name.href = sanitizeUrl(source.url);
+    name.target = "_blank";
+    name.rel = "noopener";
 
-    items.forEach((source) => {
-      const card = document.createElement("div");
-      card.className = "headline-card";
+    header.appendChild(name);
 
-      const header = document.createElement("div");
-      header.className = "headline-header";
-      appendSourceIcon(header, source);
+    const itemsEl = document.createElement("div");
+    itemsEl.className = "headline-items";
+    itemsEl.textContent = "Loading...";
 
-      const name = document.createElement("div");
-      name.className = "headline-title";
-      name.textContent = source.name || "Untitled source";
+    card.appendChild(header);
+    card.appendChild(itemsEl);
+    headlinesList.appendChild(card);
 
-      header.appendChild(name);
-
-      const itemsEl = document.createElement("div");
-      itemsEl.className = "headline-items";
-      itemsEl.textContent = "Loading...";
-
-      card.appendChild(header);
-      card.appendChild(itemsEl);
-      grid.appendChild(card);
-
-      cards.push({ card, grid, section, source });
-      tasks.push(
-        fillHeadlineItems(itemsEl, source).then((items) => ({
-          items,
-          card,
-          grid,
-          section,
-          source,
-          itemsEl,
-          header
-        }))
-      );
-    });
-
-    section.appendChild(title);
-    section.appendChild(grid);
-    headlinesList.appendChild(section);
+    tasks.push(
+      fillHeadlineItems(itemsEl, source).then((items) => ({
+        items,
+        card,
+        source
+      }))
+    );
   });
 
   const results = await Promise.all(tasks);
-  const missingSources = [];
   results.forEach((result) => {
-    if (result.items.length) {
-      return;
+    if (!result.items.length) {
+      result.card.remove();
     }
-    result.card.remove();
-    if (!result.grid.children.length) {
-      result.section.remove();
-    }
-    missingSources.push(result.source);
   });
-
-  if (missingSources.length) {
-    const section = document.createElement("div");
-    section.className = "headlines-category";
-
-    const title = document.createElement("div");
-    title.className = "category-title";
-    title.textContent = "Sites without feeds";
-
-    const grid = document.createElement("div");
-    grid.className = "headlines-grid";
-
-    missingSources.forEach((source) => {
-      const card = document.createElement("div");
-      card.className = "headline-card compact";
-
-      const header = document.createElement("div");
-      header.className = "headline-header";
-      appendSourceIcon(header, source);
-
-      const name = document.createElement("div");
-      name.className = "headline-title";
-      name.textContent = source.name || "Untitled source";
-
-      header.appendChild(name);
-
-      const link = document.createElement("a");
-      link.className = "headline-fallback compact";
-      link.href = sanitizeUrl(source.url);
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.textContent = "Visit site";
-
-      card.appendChild(header);
-      card.appendChild(link);
-      grid.appendChild(card);
-    });
-
-    section.appendChild(title);
-    section.appendChild(grid);
-    headlinesList.appendChild(section);
-  }
 
   headlinesStatus.textContent = "";
 }
 
 async function fillHeadlineItems(container, source) {
   container.textContent = "Loading...";
-  const items = await getTopHeadlines(source, 3);
+  const items = await getTopHeadlines(source, 6);
   container.innerHTML = "";
 
   if (!items.length) {
